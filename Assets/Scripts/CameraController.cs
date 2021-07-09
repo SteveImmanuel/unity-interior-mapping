@@ -2,47 +2,37 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float movementSpeed = .1f;
+    public float movementSpeed = 5f;
     public float mouseSensitivity = 4f;
+    public float smoothTime = .5f;
 
     private float yaw;
     private float pitch;
+    private Vector3 currentSpeed;
+    private Vector3 refVelocity;
 
     private void Awake()
     {
         yaw = transform.eulerAngles.y;
         pitch = transform.eulerAngles.x;
+        currentSpeed = Vector3.zero;
+        refVelocity = Vector3.zero;
     }
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.position += transform.forward * movementSpeed;
-        }
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.position += transform.forward * movementSpeed * -1;
-        }
-        if (Input.GetKey(KeyCode.E))
-        {
-            transform.position += transform.up * movementSpeed;
-        }
-        if (Input.GetKey(KeyCode.Q))
-        {
-            transform.position += transform.up * movementSpeed * -1;
-        }
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.position += transform.right * movementSpeed * -1;
-        }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.position += transform.right * movementSpeed;
-        }
+        float scroll = Input.GetAxisRaw("Mouse ScrollWheel");
+        movementSpeed = Mathf.Clamp(movementSpeed + scroll * 2, 0.1f, 15);
+
+        Vector3 x = Input.GetAxisRaw("Vertical") * transform.forward;
+        Vector3 z = Input.GetAxisRaw("Horizontal") * transform.right;
+        Vector3 y = Input.GetAxisRaw("Elevation") * transform.up;
+        Vector3 targetSpeed = (x + y + z) * movementSpeed;
+        currentSpeed = Vector3.SmoothDamp(currentSpeed, targetSpeed, ref refVelocity, smoothTime);
 
         yaw += mouseSensitivity * Input.GetAxis("Mouse X");
         pitch -= mouseSensitivity * Input.GetAxis("Mouse Y");
         transform.eulerAngles = new Vector3(pitch, yaw, 0);
+        transform.position += currentSpeed * Time.deltaTime;
     }
 }
