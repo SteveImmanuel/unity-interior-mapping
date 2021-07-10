@@ -1088,8 +1088,8 @@
     ],
     "m_VertexContext": {
         "m_Position": {
-            "x": 2515.0,
-            "y": 1776.0
+            "x": 2414.999755859375,
+            "y": 1783.9998779296875
         },
         "m_Blocks": [
             {
@@ -1105,8 +1105,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 2515.0,
-            "y": 1949.0
+            "x": 2415.0,
+            "y": 1956.0
         },
         "m_Blocks": [
             {
@@ -2135,7 +2135,7 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 1128.0,
+            "x": 992.0,
             "y": 2631.0,
             "width": 135.0,
             "height": 34.0
@@ -4476,7 +4476,7 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 1761.9998779296875,
+            "x": 1625.9998779296875,
             "y": 2440.0,
             "width": 128.0,
             "height": 94.0
@@ -4695,9 +4695,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 1463.0,
+            "x": 1327.0,
             "y": 2487.0,
-            "width": 110.00000762939453,
+            "width": 110.0,
             "height": 34.0
         }
     },
@@ -4733,7 +4733,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.0,
+    "m_Value": 0.5,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -5264,8 +5264,8 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "x": 3.2100000381469728,
-        "y": 2.569999933242798,
+        "x": 5.0,
+        "y": 7.0,
         "z": 0.0,
         "w": 0.0
     }
@@ -5577,7 +5577,7 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 1681.9998779296875,
+            "x": 1546.0,
             "y": 2578.0,
             "width": 208.0,
             "height": 436.9999694824219
@@ -5786,9 +5786,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 1359.0,
+            "x": 1223.0,
             "y": 2578.0,
-            "width": 208.00001525878907,
+            "width": 208.0,
             "height": 326.0
         }
     },
@@ -5880,8 +5880,8 @@
     "m_ObjectId": "b81528b412a24cd2b4f89995cb4413ce",
     "m_Title": "Base Texture",
     "m_Position": {
-        "x": 1103.0,
-        "y": 2411.0
+        "x": 967.0,
+        "y": 2381.0
     }
 }
 
