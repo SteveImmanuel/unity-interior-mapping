@@ -1,0 +1,28 @@
+#pragma kernel CSMain
+
+struct RoomInfo
+{
+	int isType1;
+	int isType2;
+	int isType3;
+	float emissionAmount;
+};
+
+RWTexture2D<float4> Result;
+StructuredBuffer<RoomInfo> _Rooms;
+int2 _TextureDimension;
+int2 _Tiling;
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+	int xIndex = floor((float) id.x / _TextureDimension.x * _Tiling.x);
+	int yIndex = floor((float) id.y / _TextureDimension.y * _Tiling.y);
+	int index = yIndex * _Tiling.x + xIndex;
+	
+	// r channel for interior type 1
+	// g channel for interior type 2
+	// b channel for interior type 3
+	// a channel for emission
+	Result[id.xy] = float4(_Rooms[index].isType1, _Rooms[index].isType2, _Rooms[index].isType3, _Rooms[index].emissionAmount);
+}
