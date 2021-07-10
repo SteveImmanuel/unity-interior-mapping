@@ -30,9 +30,12 @@ public class CameraController : MonoBehaviour
         Vector3 targetSpeed = (x + y + z) * movementSpeed;
         currentSpeed = Vector3.SmoothDamp(currentSpeed, targetSpeed, ref refVelocity, smoothTime);
 
-        yaw += mouseSensitivity * Input.GetAxis("Mouse X");
-        pitch -= mouseSensitivity * Input.GetAxis("Mouse Y");
-        transform.eulerAngles = new Vector3(pitch, yaw, 0);
+        if (Input.GetButton("Fire2"))
+        {
+            yaw += mouseSensitivity * Input.GetAxis("Mouse X");
+            pitch -= mouseSensitivity * Input.GetAxis("Mouse Y");
+            transform.eulerAngles = new Vector3(pitch, yaw, 0);
+        }
         transform.position += currentSpeed * Time.deltaTime;
     }
 }
